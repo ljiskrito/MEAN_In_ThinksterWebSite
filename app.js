@@ -1,5 +1,20 @@
 
-var app = angular.module('flappernews', []);
+var app = angular.module('flappernews', ['ui.router']);
+
+app.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider){
+
+        $stateProvider.state('index', {
+            url: '/index',
+            template: '/index.html',
+            controller: 'MainCtrl'
+        });
+
+        $urlRouterProvider.otherwise('index');
+    }
+]);
 
 app.factory('posts', [
     function(){
